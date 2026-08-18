@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import CategoryCard from "../components/CategoryCard";
 import Navbar from "../components/Navbar";
 
+
+
 function Home() {
   return (
     <div className="app">
