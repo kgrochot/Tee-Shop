@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import CategoryCard from "../components/CategoryCard";
 import Navbar from "../components/Navbar";
 
-
-
 function Home() {
   return (
     <div className="app">
@@ -12,7 +10,11 @@ function Home() {
       <main>
         <section className="hero">
           <div className="hero-content">
-            <p className="eyebrow">TEA ATELIER</p>
+            <img
+              src={`${import.meta.env.BASE_URL}images/tee-atelier.webp`}
+              alt="Tea Atelier"
+              className="hero-logo"
+            />
 
             <h1>
               Die Kunst,
