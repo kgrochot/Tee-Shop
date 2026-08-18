@@ -18,15 +18,21 @@ function Cart() {
       <main className="cart-page">
         <section className="cart-header">
           <h1>Deine ausgewählten Tees.</h1>
-          
         </section>
 
         {cartItems.length === 0 ? (
           <div className="cart-empty">
-            <p>Dein Warenkorb ist noch leer.</p>
+            <span className="cart-empty-number">00</span>
+
+            <h2>Noch nichts ausgewählt.</h2>
+
+            <p>
+              Entdecke unsere Tees und finde deine persönlichen Favoriten für
+              besondere Genussmomente.
+            </p>
 
             <Link to="/shop" className="primary-button">
-              Zum Shop
+              Tees entdecken
             </Link>
           </div>
         ) : (
@@ -72,7 +78,9 @@ function Cart() {
 
               <strong>{cartTotal.toFixed(2).replace(".", ",")} €</strong>
 
-              <button className="checkout-button">Zur Kasse</button>
+              <Link to="/checkout" className="checkout-button">
+                Zur Kasse
+              </Link>
             </section>
           </>
         )}
