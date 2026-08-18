@@ -1,43 +1,62 @@
 import { Link } from "react-router-dom";
 import products from "../data/products";
+import Navbar from "../components/Navbar";
 
 function Shop() {
   return (
-    <main className="shop-page">
-      <section className="shop-header">
-        <p className="eyebrow">TEA ATELIER</p>
+    <div className="app">
+      <Navbar />
 
-        <h1>Unsere Tees</h1>
+      <main className="shop-page">
+        <section className="shop-header">
+          <p className="eyebrow">TEA ATELIER</p>
 
-        <p>Entdecke ausgewählte Teesorten für besondere Genussmomente.</p>
-      </section>
+          <h1>Unsere Tees</h1>
 
-      <section className="product-grid">
-        {products.map((product) => (
-          <article className="product-card" key={product.id}>
-            <div className="product-image">
-              <img src={product.image} alt={product.name} />
-            </div>
+          <p>
+            Entdecke ausgewählte Teesorten für besondere Genussmomente.
+          </p>
+        </section>
 
-            <div className="product-info">
-              <p className="product-category">{product.category}</p>
-
-              <h2>{product.name}</h2>
-
-              <p className="product-description">{product.shortDescription}</p>
-
-              <div className="product-bottom">
-                <span>{product.price.toFixed(2).replace(".", ",")} €</span>
-
-                <Link to={`/product/${product.id}`} className="discover-button">
-                  Entdecken
-                </Link>
+        <section className="product-grid">
+          {products.map((product) => (
+            <article className="product-card" key={product.id}>
+              <div className="product-image">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                />
               </div>
-            </div>
-          </article>
-        ))}
-      </section>
-    </main>
+
+              <div className="product-info">
+                <p className="product-category">
+                  {product.category}
+                </p>
+
+                <h2>{product.name}</h2>
+
+                <p className="product-description">
+                  {product.shortDescription}
+                </p>
+
+                <div className="product-bottom">
+                  <span>
+                    {product.price.toFixed(2).replace(".", ",")} €
+                  </span>
+
+                  <Link
+                    to={`/product/${product.id}`}
+                    className="discover-button"
+                  >
+                    Entdecken
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </section>
+      </main>
+    </div>
   );
 }
 

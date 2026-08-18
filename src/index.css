@@ -140,30 +140,51 @@ h1 {
   transform: translateY(-2px);
 }
 
-/* Hero Bild */
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 140px;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+   Hero Bild
+========================= */
 
 .hero-image {
   height: 560px;
+  overflow: hidden;
 }
 
 .image-placeholder {
+  position: relative;
+  width: 100%;
   height: 100%;
+  overflow: hidden;
+}
 
-  background:
-    linear-gradient(
-      rgba(52, 65, 44, 0.1),
-      rgba(52, 65, 44, 0.1)
-    ),
-    #ddd5c2;
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.image-placeholder span {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
 
-  color: var(--dark-green);
-
+  color: white;
   font-family: "Cormorant Garamond", serif;
   font-size: 2rem;
+
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 /* Featured */
@@ -197,33 +218,111 @@ h1 {
 }
 
 .category-card {
-  padding: 40px;
+  position: relative;
+
+  min-height: 320px;
+
+  display: block;
+
+  overflow: hidden;
 
   border: 1px solid rgba(52, 65, 44, 0.2);
 
-  min-height: 260px;
+  transform-style: preserve-3d;
+  will-change: transform;
 
-  transition: 0.3s ease;
-}
-
-.category-card span {
-  color: var(--gold);
-  font-size: 0.75rem;
-}
-
-.category-card h3 {
-  font-size: 2rem;
-  margin: 55px 0 10px;
-}
-
-.category-card p {
-  color: var(--text);
-  font-size: 0.9rem;
+  transition:
+    transform 0.15s ease-out,
+    box-shadow 0.3s ease;
 }
 
 .category-card:hover {
-  background: white;
-  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(52, 65, 44, 0.18);
+}
+
+/* Bild */
+
+.category-card-image {
+  position: absolute;
+  inset: -8px;
+
+  overflow: hidden;
+}
+
+.category-card-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transform: scale(1.05);
+
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover .category-card-image img {
+  transform: scale(1.1);
+}
+
+/* Overlay */
+
+.category-card-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(52, 65, 44, 0.85),
+    rgba(52, 65, 44, 0.15)
+  );
+}
+
+/* Inhalt */
+
+.category-card-content {
+  position: absolute;
+  inset: 0;
+
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  color: white;
+
+  transform-style: preserve-3d;
+}
+
+.category-card-content span {
+  color: #d8bd88;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+
+  transform: translateZ(30px);
+}
+
+.category-card-content h3 {
+  color: white;
+
+  font-size: 2.2rem;
+
+  margin: 10px 0;
+
+  transform: translateZ(25px);
+}
+
+.category-card-content p {
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  transform: translateZ(15px);
 }
 
 /* Responsive */
@@ -253,6 +352,10 @@ h1 {
 
   .category-grid {
     grid-template-columns: 1fr;
+  }
+
+  .category-card {
+    transform: none !important;
   }
 }
 
@@ -506,7 +609,9 @@ h1 {
   font-size: 0.95rem;
   cursor: pointer;
   border-radius: 3px;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .add-to-cart-button:hover {
@@ -538,7 +643,6 @@ h1 {
   }
 }
 
-
 /* =========================
    Shop - Tablet
 ========================= */
@@ -548,7 +652,6 @@ h1 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 
 /* =========================
    Shop - Mobile
