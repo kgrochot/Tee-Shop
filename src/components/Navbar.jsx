@@ -16,16 +16,19 @@ function Navbar() {
       <nav className="nav-links">
         <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
+
+        <a
+          href="https://kgrochot.github.io/TeeAtelier/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Über Tee
+        </a>
       </nav>
 
       <Link to="/cart" className="cart-link">
         Warenkorb
-
-        {cartCount > 0 && (
-          <span className="cart-count">
-            {cartCount}
-          </span>
-        )}
+        {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
       </Link>
     </header>
   );

@@ -10,11 +10,6 @@ function Home() {
       <main>
         <section className="hero">
           <div className="hero-content">
-            <img
-              src={`${import.meta.env.BASE_URL}images/tee-atelier.webp`}
-              alt="Tea Atelier"
-              className="hero-logo"
-            />
 
             <h1>
               Die Kunst,

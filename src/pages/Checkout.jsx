@@ -29,11 +29,9 @@ function Checkout() {
     const orderItems = cartItems
       .map(
         (item) =>
-          `${item.name} × ${item.quantity} – ${(
-            item.price * item.quantity
-          )
+          `${item.name} × ${item.quantity} – ${(item.price * item.quantity)
             .toFixed(2)
-            .replace(".", ",")} €`
+            .replace(".", ",")} €`,
       )
       .join("\n");
 
@@ -45,9 +43,7 @@ ich möchte folgende Tees bestellen:
 
 ${orderItems}
 
-Gesamtsumme: ${cartTotal
-      .toFixed(2)
-      .replace(".", ",")} €
+Gesamtsumme: ${cartTotal.toFixed(2).replace(".", ",")} €
 
 Kundendaten:
 ${formData.firstName} ${formData.lastName}
@@ -59,7 +55,7 @@ Vielen Dank!
 `;
 
     const mailto = `mailto:deine-email@example.com?subject=${encodeURIComponent(
-      subject
+      subject,
     )}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailto;
@@ -73,10 +69,7 @@ Vielen Dank!
 
           <h2>Dein Warenkorb ist leer.</h2>
 
-          <p>
-            Entdecke unsere Tees und finde deine persönlichen
-            Favoriten.
-          </p>
+          <p>Entdecke unsere Tees und finde deine persönlichen Favoriten.</p>
 
           <Link to="/shop" className="primary-button">
             Tees entdecken
@@ -94,7 +87,17 @@ Vielen Dank!
 
       <section className="checkout-layout">
         <div className="checkout-form">
-          <p className="eyebrow">TEA ATELIER</p>
+          <div className="checkout-brand">
+            <img
+              src={`${import.meta.env.BASE_URL}images/tea-atelier.webp`}
+              alt="Tea Atelier"
+              className="checkout-logo"
+            />
+
+            <p className="checkout-brand-text">
+              Deine Bestellung bei Tea Atelier
+            </p>
+          </div>
 
           <h1>Bestellung abschließen</h1>
 
@@ -155,10 +158,7 @@ Vielen Dank!
               />
             </div>
 
-            <button
-              type="submit"
-              className="checkout-button"
-            >
+            <button type="submit" className="checkout-button">
               Bestellung abschließen
             </button>
           </form>
@@ -174,10 +174,7 @@ Vielen Dank!
               </span>
 
               <strong>
-                {(item.price * item.quantity)
-                  .toFixed(2)
-                  .replace(".", ",")}{" "}
-                €
+                {(item.price * item.quantity).toFixed(2).replace(".", ",")} €
               </strong>
             </div>
           ))}
@@ -185,9 +182,7 @@ Vielen Dank!
           <div className="checkout-total">
             <span>Gesamtsumme</span>
 
-            <strong>
-              {cartTotal.toFixed(2).replace(".", ",")} €
-            </strong>
+            <strong>{cartTotal.toFixed(2).replace(".", ",")} €</strong>
           </div>
         </aside>
       </section>
