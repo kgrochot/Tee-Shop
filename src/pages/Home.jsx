@@ -1,19 +1,21 @@
+import { Link } from "react-router-dom";
+
 function Home() {
   return (
     <div className="app">
       <header className="navbar">
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           Tea Atelier
-        </a>
+        </Link>
 
         <nav className="nav-links">
-          <a href="/">Home</a>
-          <a href="/shop">Shop</a>
+          <Link to="/">Home</Link>
+          <Link to="/shop">Shop</Link>
         </nav>
 
-        <a href="/cart" className="cart-link">
+        <Link to="/cart" className="cart-link">
           Warenkorb
-        </a>
+        </Link>
       </header>
 
       <main>
@@ -33,9 +35,9 @@ function Home() {
               mit Liebe zum Detail.
             </p>
 
-            <a href="/shop" className="primary-button">
+            <Link to="/shop" className="primary-button">
               Zum Shop
-            </a>
+            </Link>
           </div>
 
           <div className="hero-image">
@@ -62,23 +64,23 @@ function Home() {
           </div>
 
           <div className="category-grid">
-            <a href="/shop" className="category-card">
+            <Link to="/shop" className="category-card">
               <span>01</span>
               <h3>Grüner Tee</h3>
               <p>Frisch, fein und ausgewogen.</p>
-            </a>
+            </Link>
 
-            <a href="/shop" className="category-card">
+            <Link to="/shop" className="category-card">
               <span>02</span>
               <h3>Schwarzer Tee</h3>
               <p>Kräftig, aromatisch und klassisch.</p>
-            </a>
+            </Link>
 
-            <a href="/shop" className="category-card">
+            <Link to="/shop" className="category-card">
               <span>03</span>
               <h3>Kräutertee</h3>
               <p>Natürlich und wohltuend.</p>
-            </a>
+            </Link>
           </div>
         </section>
       </main>
